@@ -15,7 +15,7 @@
       </div>
     </scroll>
     <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
-    <detail-bottom-bar></detail-bottom-bar>
+    <detail-bottom-bar @addCart="addtoCart"></detail-bottom-bar>
   </div>
 </template>
 
@@ -116,11 +116,21 @@ export default {
       let length = this.themeTopYs.length
       this.themeTopYs.push(Infinity)
       for(let i = 0; i < length ;i++){
-       if(this.currentIndex !==i && (positionY > this.themeTopYs[i]) && (positionY < this.themeTopYs[i+1]) ){
+       if(this.currentIndex !==i && positionY >= this.themeTopYs[i] && positionY < this.themeTopYs[i+1]){
          this.currentIndex = i;
          this.$refs.nav.currentIndex = this.currentIndex;
         }
       }
+    },
+    addtoCart() {
+      //获取购物车商品需要展示的信息
+      const product = {}
+      product.image = this.topImgs[0];
+      product.title = this.goods.title;
+      product.desc = '颜色:---，尺码:---';
+      product.price = this.goods.lowNowPrice;
+      product.iid = this.iid;
+      this.$store.dispatch('addCart', product)
     }
   }
 }

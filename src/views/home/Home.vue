@@ -144,7 +144,7 @@ export default {
     height: 100vh;
   }
   .home-nav{
-    background-color: pink;
+    background-color: var(--color-tint);
     color: #fff;
     /* position: fixed;
     left: 0;

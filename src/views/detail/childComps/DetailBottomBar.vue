@@ -3,14 +3,19 @@
     <div><img src="~assets/img/detail/service.svg" alt=""><p>客服</p></div>
     <div><img src="~assets/img/detail/shop.svg" alt=""><p>店铺</p></div>
     <div><img src="~assets/img/collect.svg" alt=""><p>收藏</p></div>
-    <div class="car">加入购物车</div>
+    <div class="car" @click="addtoCart">加入购物车</div>
     <div class="buy">购买</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "DetailBottomBar"
+  name: "DetailBottomBar",
+  methods: {
+    addtoCart() {
+      this.$emit('addCart')
+    }
+  }
 }
 </script>
 

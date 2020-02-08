@@ -83,6 +83,7 @@ export default {
   }
   .left > div > h3{
     line-height: 30px;
+    color:var(--color-hiht-text);
   }
   .left > div > p{
     font-size: 14px;

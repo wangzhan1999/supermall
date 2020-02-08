@@ -11,10 +11,10 @@
       <div class="center">{{goods.columns[1]}}</div>
       <div class="right">{{goods.services[0].name}}</div>
     </div>
-    <div class="services" v-if="Object.keys(goods).length !== 0">
-      <div class="left"><img :src="goods.services[1].icon" alt="">{{goods.services[1].name}}</div>
-      <div class="center"><img :src="goods.services[2].icon" alt="">{{goods.services[2].name}}</div>
-      <div class="right"><img :src="goods.services[3].icon" alt="">{{goods.services[3].name}}</div>
+    <div class="services" v-if="goods.services !== []">
+      <div class="left"><img :src="goods.services[0].icon" alt="">{{goods.services[0].name}}</div>
+      <div class="center"><img :src="goods.services[0].icon" alt="">{{goods.services[1].name}}</div>
+      <div class="right"><img :src="goods.services[0].icon" alt="">{{goods.services[2].name}}</div>
     </div>
   </div>
 </template>
