@@ -3,7 +3,7 @@
     <img :src="showImg" alt="" @load="imageLoad">
     <div class="info">
       <p>{{product.title}}</p>
-      <span class="price">{{product.price}}</span>
+      <span class="price">￥{{product.price}}</span>
       <span class="collect">{{product.cfav}}</span>
     </div>
   </div>
@@ -50,7 +50,6 @@ export default {
   .goodsitem{
     margin: 2px 1vw;
     width: 48vw;
-    border:1px solid #d4d4d4;
     border-radius: 3px; 
   }
   .goodsitem > img{

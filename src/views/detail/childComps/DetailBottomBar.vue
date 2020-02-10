@@ -14,6 +14,7 @@ export default {
   methods: {
     addtoCart() {
       this.$emit('addCart')
+      this.$emit('titisshow')
     }
   }
 }
@@ -38,7 +39,7 @@ export default {
   }
   .bottombar > div > img{
     margin-top: 3px;
-    width: 26px;
+    width: 22px;
   }
   .buy,.car{
     line-height: 49px;

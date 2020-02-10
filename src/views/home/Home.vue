@@ -13,7 +13,7 @@
             :pullUpLoad=true
             @scroll="contentscroll"
             @pullingUp="loadMore">
-      <home-swiper :banners="banners" @swiperImgLoad="swiperImgLoad"></home-swiper>
+      <home-swipe :banners="banners" @swipeImgLoad="swipeImgLoad"></home-swipe>
       <home-recommend-view :recommends="recommends"></home-recommend-view>
       <feature-view></feature-view>
       <tab-control 
@@ -28,13 +28,14 @@
 </template>
 <script>
 import NavBar from 'components/common/navbar/NavBar'
+
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
 
-import HomeSwiper from './childComps/HomeSwiper'
 import HomeRecommendView from './childComps/HomeRecommendView'
 import FeatureView from './childComps/FeatureView'
+import HomeSwipe from './childComps/HomeSwipe'
 
 import {getHomeMultidata, getHomeGoods} from 'network/home'
 import {debounce} from 'common/utils'
@@ -44,7 +45,7 @@ export default {
   name: 'Home',
   components: {
     NavBar,
-    HomeSwiper,
+    HomeSwipe,
     HomeRecommendView,
     FeatureView,
     TabControl,
@@ -113,7 +114,7 @@ export default {
       this.getHomeGoods(this.currentType);
       this.$refs.scroll.refresh();
     },
-    swiperImgLoad() {
+    swipeImgLoad() {
       this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       // console.log(this.$refs.tabControl2.$el.offsetTop);
     },
@@ -122,7 +123,7 @@ export default {
      */
     getHomeMultidata() {
       getHomeMultidata().then(response => {  
-        this.banners = response.data.banner.list;
+        this.banners = response.data.banner.list
         this.recommends = response.data.recommend.list;
       })
     },
@@ -132,7 +133,7 @@ export default {
         //  ...对象展开运算符
         this.goods[type].list.push(...response.data.list) 
         this.goods[type].page += 1
-        this.$refs.scroll.finishPullUp()
+        this.$refs.scroll && this.$refs.scroll.finishPullUp()
       })
     }
     // 

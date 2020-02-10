@@ -1,7 +1,7 @@
 <template>
-  <div class="faeture">
+  <div class="feature">
     <a href="http://act.mogujie.com/zzlx67">
-    <div class="faetureImg"></div>
+      <img alt="" src="@/assets/img/home/recommend_bg.png" />
     </a>
   </div>
 </template>
@@ -11,9 +11,13 @@ export default {
 }
 </script>
 <style scoped>
-  .faetureImg{
+  .feature a {
+    display: block;
+    width: 100vw;
+    background-color: white;
+  }
+  .feature > a > img {
     width: 100%;
-    height: 220px;
-    background-color: pink;
+    background-color: white;
   }
 </style>

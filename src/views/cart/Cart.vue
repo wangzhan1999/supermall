@@ -1,14 +1,14 @@
 <template>
   <div id="cart">
     <nav-bar class="cart-nav"><div slot="center">购物车({{cartLength}})</div></nav-bar>
-    <scroll class="content" ref="scroll">
-      <cart-list :cartList="cartList" @addclick='addcount' @reduceclick='reducecount'></cart-list>
-    </scroll>
+      <cart-list @addclick='addcount'
+                 @reduceclick='reducecount'
+                 @checkedclick='ischecked'>
+      </cart-list>
   </div>
 </template>
 <script>
 import NavBar from 'components/common/navbar/NavBar'
-import Scroll from 'components/common/scroll/Scroll'
 
 import CartList from "./childComps/CartList"
 
@@ -18,7 +18,6 @@ export default {
   name: 'Cart',
   components: {
     NavBar,
-    Scroll,
     CartList
   },
   computed: {
@@ -28,17 +27,25 @@ export default {
     ])
   },
   methods: {
+    // 这些方法可以放在子组件，自己弄麻烦了,添加商品数量
     addcount(iid) {
       const product = this.cartList.find(item => item.iid === iid)
       this.$store.dispatch('addCount', product)
     },
+    // 减少数量判断--1再减就是删除商品
     reducecount(iid) {
       const product = this.cartList.find(item => item.iid === iid)
-      this.$store.dispatch('reduceCount', product)
+      if(product.count  <= 1) {
+        this.$store.dispatch('reduceCount', product)
+        this.$store.dispatch('delProduct', product)
+      }else if(product.count > 0){
+        this.$store.dispatch('reduceCount', product)
+      }
+    },
+    // 改变状态函数
+    ischecked(iid) {
+      this.$store.dispatch('ischecked', iid)
     }
-  },
-  activated () {
-    this.$refs.scroll.scroll.refresh()
   }
 }
 </script>
@@ -55,8 +62,5 @@ export default {
     background-color: var(--color-tint);
     color: #fff;
   }
-  .content{
-    height: calc(100% - 49px);  
-    overflow: hidden;
-  }
+  
 </style>

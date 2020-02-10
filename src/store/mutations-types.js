@@ -1,3 +1,8 @@
 export const ADD_COUNTER = 'add_counter'
 export const ADD_TO_CART = 'add_to_cart'
 export const REDUCE_COUNTER = 'reduce_counter'
+export const DEL_PRODUCT = 'del_product'
+export const IS_CHECKED = 'is_checked'
+export const EMPTY_CART = 'empty_cart'
+export const DEL_CARTSHOP = 'del_cartshop'
+export const LOAD_CART = 'load_cart'
