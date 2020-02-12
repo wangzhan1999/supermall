@@ -22,7 +22,7 @@ export default {
 <style>
   @import "./assets/css/base.css";
   .routerViwe-enter-active, .routerViwe-leave-active {
-    transition: opacity .5s
+    transition: opacity .2s
   }
   .routerViwe-enter, .routerViwe-leave-active {
     opacity: 0

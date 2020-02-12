@@ -121,14 +121,11 @@ export default {
         .filter(item => item.statu === true).length
     }
   },
-  created() {
-    // 每次刷新页面获取本地存储购物车数据
-    let list = JSON.parse(localStorage.getItem("MycartList")) || [];
-    if (list) {
-      this.$store.dispatch('loadCart', list)
-    }
-  },
   activated () {
+      let list = JSON.parse(localStorage.getItem("MycartList")) || [];
+      if (list) {
+        this.$store.dispatch('loadCart', list)
+      }
     // 这里是每次进来都会刷新全选按钮状态的代码·····
       this.$refs.scroll.refresh();
       const no = this.cartList.filter(item => item.statu === false)
