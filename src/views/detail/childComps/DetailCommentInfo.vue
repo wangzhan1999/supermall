@@ -63,6 +63,7 @@ export default {
   }
   .userinfo > img{
     width: 15vw;
+    height: 15vw;
     border-radius: 50%;
     display: inline-block;
   }

@@ -61,6 +61,9 @@ export default {
   },
   updated () {
     this.$refs.scroll.refresh();
+  },
+  activated () {
+    this.$refs.scroll.refresh();
   }
 }
 </script>
