@@ -12,7 +12,7 @@
         <div><h3>{{shops.goodsCount}}</h3><p>全部宝贝</p></div>
       </div>
       <div class="right">
-        <div v-for="item in shops.score">
+        <div v-for="(item, i) in shops.score" :key="i">
           <div>{{item.name}}
             <span class="score" :class="{isbetterok:item.isBetter,isbetterno:!item.isBetter}">{{item.score}}
               <span class="isbetter">{{item.isBetter ? '高' : '低'}}</span></span></div>

@@ -128,7 +128,7 @@ export default {
       })
     },
     getHomeGoods(type) {
-      const page = this.goods[type].page + 1
+      let page = this.goods[type].page + 1
       getHomeGoods(type, page).then(response => {
         //  ...对象展开运算符
         this.goods[type].list.push(...response.data.list) 

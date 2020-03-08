@@ -1,8 +1,17 @@
 <template>
   <div class="bottombar">
-    <div><img src="~assets/img/detail/service.svg" alt=""><p>客服</p></div>
-    <div><img src="~assets/img/detail/shop.svg" alt=""><p>店铺</p></div>
-    <div><img src="~assets/img/collect.svg" alt=""><p>收藏</p></div>
+    <div>
+      <img src="~assets/img/detail/service.svg" alt=""/>
+      <p>客服</p>
+      </div>
+    <div>
+      <img src="~assets/img/detail/shop.svg" alt=""/>
+      <p>店铺</p>
+    </div>
+    <div>
+      <img src="~assets/img/collect.svg" alt=""/>
+      <p>收藏</p>
+    </div>
     <div class="car" @click="addtoCart">加入购物车</div>
     <div class="buy">购买</div>
   </div>
@@ -39,9 +48,11 @@ export default {
   }
   .bottombar > div > img{
     margin-top: 3px;
-    width: 22px;
+    width: 40px;
+    height: 40px;
   }
   .buy,.car{
+    height: 49px;
     line-height: 49px;
   }
   .car{

@@ -5,7 +5,8 @@
         <img src="~assets/img/back.svg" alt="" class="back">
       </div>
       <div slot="center" class="title">
-        <div :key="index" v-for="(item, index) in titles" 
+        <div v-for="(item, index) in titles"
+             :key="index"
              class="title-item"
              :class="{active: index === currentIndex}"
              @click="titleClick(index)">

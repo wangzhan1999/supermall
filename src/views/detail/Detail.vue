@@ -80,7 +80,7 @@ export default {
       this.detailInfo = data.detailInfo;
       this.detailParamsInfo = new Params(data.itemParams.info, data.itemParams.rule);
       this.commentInfo = data.rate.list[0];
-      }).catch({})
+      }).catch(err => { console.log(err) })
       // detailgoods的数据
       getRecommend().then(res => {
         this.recommends =  res.data.list
