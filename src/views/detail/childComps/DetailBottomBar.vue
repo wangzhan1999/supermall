@@ -48,8 +48,7 @@ export default {
   }
   .bottombar > div > img{
     margin-top: 3px;
-    width: 40px;
-    height: 40px;
+    width: 35%;
   }
   .buy,.car{
     height: 49px;
